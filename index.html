@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify - AI Music Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-music"></i>
+                <span>Modify</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="dashboard">Dashboard</a>
+                <a href="#" class="nav-link" data-page="library">Library</a>
+                <a href="#" class="nav-link" data-page="profile">Profile</a>
+                <a href="#" class="nav-link" data-page="about">About</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn--outline btn--sm" id="loginBtn">Login</button>
+                <button class="btn btn--primary btn--sm" id="signupBtn">Sign Up</button>
+                <div class="user-menu hidden" id="userMenu">
+                    <span class="user-name" id="userName">User</span>
+                    <button class="btn btn--outline btn--sm" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        
+        <!-- Landing Page -->
+        <section class="page active" id="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Discover Music That Matches Your <span class="highlight">Mood</span></h1>
+                    <p class="hero-subtitle">AI-powered music recommendations based on your emotions, facial expressions, and image vibes</p>
+                    <div class="hero-actions">
+                        <button class="btn btn--primary btn--lg" id="getStartedBtn">Get Started</button>
+                        <button class="btn btn--outline btn--lg" data-page="about">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-card">
+                        <i class="fas fa-smile"></i>
+                        <h3>Emotion Detection</h3>
+                        <p>Real-time facial emotion recognition</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-sliders-h"></i>
+                        <h3>Mood Selector</h3>
+                        <p>Fine-tune your emotional state</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-image"></i>
+                        <h3>Vibe Detection</h3>
+                        <p>Upload images to match their energy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Authentication Page -->
+        <section class="page" id="auth">
+            <div class="auth-container">
+                <div class="auth-toggle">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <form class="auth-form active" id="loginForm">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                </form>
+
+                <form class="auth-form" id="signupForm">
+                    <h2>Join Modify</h2>
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" id="signupUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signupPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Sign Up</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section class="page" id="dashboard">
+            <div class="dashboard-header">
+                <h1>Choose Your Recommendation Mode</h1>
+                <p>Select how you'd like us to understand your musical taste today</p>
+            </div>
+            <div class="recommendation-modes">
+                <div class="mode-card" data-mode="emotion">
+                    <div class="mode-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Emotion + Intensity</h3>
+                    <p>Select your current emotion and intensity level for personalized recommendations</p>
+                    <button class="btn btn--primary">Try This Mode</button>
+                </div>
+                <div class="mode-card" data-mode="face">
+                    <div class="mode-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Face Detection</h3>
+                    <p>Let our AI analyze your facial expression to detect your current mood</p>
+                    <button class="btn btn--primary">Try This Mode</button>
+                </div>
+                <div class="mode-card" data-mode="image">
+                    <div class="mode-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Image Vibe</h3>
+                    <p>Upload an image and we'll match music to its visual energy and aesthetic</p>
+                    <button class="btn btn--primary">Try This Mode</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emotion Selector Mode -->
+        <section class="page" id="emotionMode">
+            <div class="mode-container">
+                <h2>Emotion Selector</h2>
+                <p>Tell us how you're feeling and we'll find the perfect soundtrack</p>
+                
+                <div class="emotion-controls">
+                    <div class="form-group">
+                        <label class="form-label">Select Your Emotion</label>
+                        <select class="form-control" id="emotionSelect">
+                            <option value="">Choose an emotion...</option>
+                            <option value="happy">😊 Happy</option>
+                            <option value="sad">😢 Sad</option>
+                            <option value="angry">😠 Angry</option>
+                            <option value="neutral">😐 Neutral</option>
+                            <option value="party">🎉 Party</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--lg" id="selectEmotionBtn">Select Emotion</button>
+                    
+                    <div class="music-source-selection hidden" id="emotionMusicSourceSelection">
+                        <h4>Select Music Source:</h4>
+                        <div class="source-options">
+                            <label class="source-option">
+                                <input type="radio" name="emotionMusicSource" value="bollywood" checked>
+                                <span>Bollywood</span>
+                            </label>
+                            <label class="source-option">
+                                <input type="radio" name="emotionMusicSource" value="hollywood">
+                                <span>Hollywood</span>
+                            </label>
+                        </div>
+                        
+                        <button class="btn btn--primary btn--lg" id="getEmotionRecs">Get Recommendations</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Face Detection Mode -->
+        <section class="page" id="faceMode">
+            <div class="mode-container">
+                <h2>Face Emotion Detection</h2>
+                <p>Allow camera access so our AI can analyze your facial expression</p>
+                
+                <div class="camera-container">
+                    <video id="cameraVideo" autoplay playsinline muted></video>
+                    <canvas id="cameraCanvas"></canvas>
+                    <div class="camera-overlay">
+                        <div class="face-outline"></div>
+                        <p id="cameraStatus">Position your face in the frame</p>
+                    </div>
+                    <div id="loadingOverlay" class="loading-overlay hidden">
+                        <div class="spinner"></div>
+                        <p>Analyzing expression...</p>
+                    </div>
+                </div>
+                
+                <div class="detection-controls">
+                    <button class="btn btn--primary" id="startCamera">Start Camera</button>
+                    <button class="btn btn--primary hidden" id="captureEmotion">Detect Emotion</button>
+                    <button class="btn btn--outline" id="stopCamera">Stop Camera</button>
+                </div>
+                
+                <div class="emotion-result hidden" id="emotionResult">
+                    <h3>Detected Emotion: <span id="detectedEmotion"></span></h3>
+                    <p>Confidence: <span id="emotionConfidence"></span>%</p>
+                    
+                    <div class="music-source-selection">
+                        <h4>Select Music Source:</h4>
+                        <div class="source-options">
+                            <label class="source-option">
+                                <input type="radio" name="musicSource" value="bollywood" checked>
+                                <span>Bollywood</span>
+                            </label>
+                            <label class="source-option">
+                                <input type="radio" name="musicSource" value="hollywood">
+                                <span>Hollywood</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary" id="getFaceRecs">Show Recommendations</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Upload Mode -->
+        <section class="page" id="imageMode">
+            <div class="mode-container">
+                <h2>Image Vibe Detection</h2>
+                <p>Upload an image and we'll analyze its aesthetic vibe to recommend matching music</p>
+                
+                <div class="upload-container">
+                    <div class="upload-zone" id="uploadZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drop your image here</h3>
+                        <p>or <span class="upload-link">browse files</span></p>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div class="image-preview hidden" id="imagePreview">
+                        <img id="uploadedImage" alt="Uploaded image">
+                        <div class="vibe-analysis hidden" id="vibeAnalysis">
+                            <h3>Detected Vibe: <span id="detectedVibe"></span></h3>
+                            <p>Energy Level: <span id="vibeEnergy"></span>%</p>
+                            <button class="btn btn--primary" id="getImageRecs">Get Recommendations</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations Display -->
+        <section class="page" id="recommendations">
+            <div class="recommendations-header">
+                <h2 id="recTitle">Your Recommendations</h2>
+                <p id="recSubtitle">Based on your current mood</p>
+                <button class="btn btn--outline" id="backToDashboard">← Back to Dashboard</button>
+            </div>
+            
+            <div class="recommendations-grid" id="recommendationsGrid">
+                <!-- Songs will be dynamically inserted here -->
+            </div>
+            
+            <div class="recommendations-actions">
+                <button class="btn btn--outline" id="getMoreRecs">Get More Recommendations</button>
+                <button class="btn btn--primary" id="saveFeedback">Save My Preferences</button>
+            </div>
+        </section>
+
+        <!-- Library Page -->
+        <section class="page" id="library">
+            <div class="library-header">
+                <h2>Music Library</h2>
+                <div class="library-filters">
+                    <select class="form-control" id="genreFilter">
+                        <option value="">All Genres</option>
+                        <option value="Bollywood">Bollywood</option>
+                    </select>
+                    <select class="form-control" id="moodFilter">
+                        <option value="">All Moods</option>
+                        <option value="happy">Happy</option>
+                        <option value="sad">Sad</option>
+                        <option value="energetic">Energetic</option>
+                        <option value="calm">Calm</option>
+                        <option value="relaxed">Relaxed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="songs-grid" id="libraryGrid">
+                <!-- All songs will be displayed here -->
+            </div>
+        </section>
+
+        <!-- Profile Page -->
+        <section class="page" id="profile">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName">User Profile</h2>
+                        <p id="profileEmail">user@example.com</p>
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <h3 id="totalLiked">0</h3>
+                        <p>Songs Liked</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="totalRecommendations">0</h3>
+                        <p>Recommendations</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="favoriteGenre">Pop</h3>
+                        <p>Favorite Genre</p>
+                    </div>
+                </div>
+                
+                <div class="liked-songs">
+                    <h3>Your Liked Songs</h3>
+                    <div class="liked-songs-grid" id="likedSongsGrid">
+                        <!-- Liked songs will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section class="page" id="about">
+            <div class="about-container">
+                <h2>About Modify</h2>
+                <div class="about-content">
+                    <div class="about-section">
+                        <h3>AI-Powered Music Recommendations</h3>
+                        <p>Modify uses advanced machine learning models to understand your emotional state and recommend music that perfectly matches your mood. Our system combines multiple detection methods for the most accurate recommendations.</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3>Our Technology</h3>
+                        <div class="tech-features">
+                            <div class="tech-feature">
+                                <i class="fas fa-brain"></i>
+                                <h4>Emotion Recognition</h4>
+                                <p>CNN-based facial emotion detection with 92% accuracy</p>
+                            </div>
+                            <div class="tech-feature">
+                                <i class="fas fa-chart-bar"></i>
+                                <h4>Collaborative Filtering</h4>
+                                <p>Advanced recommendation algorithms using user behavior</p>
+                            </div>
+                            <div class="tech-feature">
+                                <i class="fas fa-eye"></i>
+                                <h4>Image Analysis</h4>
+                                <p>Computer vision models for aesthetic vibe detection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Audio Player -->
+    <div class="audio-player hidden" id="audioPlayer">
+        <div class="player-info">
+            <img id="playerArt" src="#" alt="Song artwork">
+            <div class="player-text">
+                <h4 id="playerTitle">Song Title</h4>
+                <p id="playerArtist">Artist</p>
+            </div>
+        </div>
+        <div class="player-controls">
+            <button id="playerPrev"><i class="fas fa-step-backward"></i></button>
+            <button id="playerPlay"><i class="fas fa-play"></i></button>
+            <button id="playerNext"><i class="fas fa-step-forward"></i></button>
+        </div>
+        <div class="player-progress">
+            <span id="playerCurrentTime">0:00</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span id="playerDuration">0:00</span>
+        </div>
+        <audio id="audioElement"></audio>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Analyzing your mood...</p>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Database files
+*.sqlite
+
+# Large files
+*.zip
+*.csv
+
+# Python virtual environment
+venv/
+
+# Dataset directories
+dataset/
+extracted_songs/
+
+# Mac OS files
+.DS_Store
+
+# Large model files
+*.pkl
+
+# Temporary files
+tmp/
+
+# Log files
+*.log
